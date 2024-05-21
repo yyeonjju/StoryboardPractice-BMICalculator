@@ -13,6 +13,7 @@
 		7D502FD92BFC802000A6960A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7D502FD82BFC802000A6960A /* Base */; };
 		7D502FDB2BFC802200A6960A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D502FDA2BFC802200A6960A /* Assets.xcassets */; };
 		7D502FDE2BFC802200A6960A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7D502FDD2BFC802200A6960A /* Base */; };
+		7D502FE62BFC851800A6960A /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D502FE52BFC851800A6960A /* BMIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7D502FDA2BFC802200A6960A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D502FDD2BFC802200A6960A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D502FDF2BFC802200A6960A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D502FE52BFC851800A6960A /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				7D502FDA2BFC802200A6960A /* Assets.xcassets */,
 				7D502FDC2BFC802200A6960A /* LaunchScreen.storyboard */,
 				7D502FDF2BFC802200A6960A /* Info.plist */,
+				7D502FE52BFC851800A6960A /* BMIViewController.swift */,
 			);
 			path = SesacAssignment0521;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D502FD62BFC802000A6960A /* ViewController.swift in Sources */,
+				7D502FE62BFC851800A6960A /* BMIViewController.swift in Sources */,
 				7D502FD22BFC802000A6960A /* AppDelegate.swift in Sources */,
 				7D502FD42BFC802000A6960A /* SceneDelegate.swift in Sources */,
 			);
