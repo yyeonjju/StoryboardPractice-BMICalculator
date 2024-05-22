@@ -30,6 +30,14 @@ class BMIViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        setData()
+        
+    }
+    private func setData() {
+        let heightData = UserDefaults.standard.string(forKey: "height")
+        inputHeightTextField.text = heightData
+        let weightData = UserDefaults.standard.string(forKey: "weight")
+        inputWeightTextField.text = weightData
     }
     
     private func configureUI () {
@@ -77,6 +85,7 @@ class BMIViewController: UIViewController {
                 
             }
             
+            saveToUserDefaults(height: height, weight: weight)
             showResultAlertButton(resultText: resultText)
         }
     }
@@ -101,6 +110,12 @@ class BMIViewController: UIViewController {
         } else {
             return "키와 몸무게를 다시 확인해주세요"
         }
+    }
+    
+    private func saveToUserDefaults (height : Int, weight : Int) {
+        //UserDefaults에 키와 몸무게 값 저장
+        UserDefaults.standard.set(height, forKey: "height")
+        UserDefaults.standard.set(weight, forKey: "weight")
     }
     
     private func calculateBMI(weight: Int, height : Int) -> Int{
