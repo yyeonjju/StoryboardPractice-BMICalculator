@@ -44,9 +44,10 @@ class BMIViewController: UIViewController {
         titleLabel.text = "BMI Calculator"
         titleLabel.font = .boldSystemFont(ofSize: 25)
         
-        subTitleLabel.text = "당신의 BMI 지수를 \n 알려드릴게요"
+        subTitleLabel.text = "당신의 BMI 지수를 \n알려드릴게요"
         subTitleLabel.numberOfLines = 2
         subTitleLabel.textAlignment = .left
+        subTitleLabel.font = .systemFont(ofSize: 13)
         
         answerHeightLabel.text = "키가 어떻게 되시나요?"
         answerHeightLabel.textColor = .gray
@@ -54,7 +55,7 @@ class BMIViewController: UIViewController {
         answerWeightLabel.textColor = .gray
         
         imageView.image = UIImage(named: "image")
-        
+        imageView.contentMode = .scaleAspectFit
         
         [inputHeightTextField, inputWeightTextField]
             .forEach{
@@ -118,8 +119,10 @@ class BMIViewController: UIViewController {
         UserDefaults.standard.set(weight, forKey: "weight")
     }
     
-    private func calculateBMI(weight: Int, height : Int) -> Int{
-        return weight/(height/100*height/100)
+    private func calculateBMI(weight: Int, height : Int) -> Double{
+        let bmi = Double(weight)/(Double(height)/100*Double(height)/100)
+        let roundedBMI = round(bmi*100)/100
+        return roundedBMI
     }
     
     private func showResultAlertButton (resultText : String) {
