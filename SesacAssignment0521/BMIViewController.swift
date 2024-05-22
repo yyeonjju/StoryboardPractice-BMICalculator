@@ -67,10 +67,17 @@ class BMIViewController: UIViewController {
     
     @IBAction func showResultButtonTapped(_ sender: UIButton) {
         if let height = Int(inputHeightTextField.text ?? ""), let weight = Int(inputWeightTextField.text ?? "") {
+            var resultText : String
             
-            let bmi = calculateBMI(weight: weight, height: height)
-            showResultAlertButton(bmiResult: String(bmi))
-    
+            if let validateString = validateString(height: height, weight: weight) {
+                resultText = validateString
+            } else {
+                let bmi = calculateBMI(weight: weight, height: height)
+                resultText =  "BMI : \(bmi)"
+                
+            }
+            
+            showResultAlertButton(resultText: resultText)
         }
     }
     
@@ -88,14 +95,21 @@ class BMIViewController: UIViewController {
         view.endEditing(true)
     }
     
+    private func validateString(height : Int, weight : Int) -> String? {
+        if height <= 250 && weight < 250 {
+            return nil
+        } else {
+            return "키와 몸무게를 다시 확인해주세요"
+        }
+    }
+    
     private func calculateBMI(weight: Int, height : Int) -> Int{
         return weight/(height/100*height/100)
     }
     
-    private func showResultAlertButton (bmiResult : String) {
-        let alertTitle = "BMI : \(bmiResult)"
+    private func showResultAlertButton (resultText : String) {
         //1. 얼럿 컨트롤러
-        let altert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
+        let altert = UIAlertController(title: resultText, message: nil, preferredStyle: .alert)
         //2. 버튼
         let confirm = UIAlertAction(title: "확인", style: .default)
         //3. 액션 버튼 붙이기
