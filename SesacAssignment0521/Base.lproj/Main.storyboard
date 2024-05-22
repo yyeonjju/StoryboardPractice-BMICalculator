@@ -82,6 +82,15 @@
                                     <constraint firstAttribute="width" secondItem="JLV-xq-c99" secondAttribute="height" multiplier="1:1.5" id="lRx-kB-nmQ"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qta-lQ-RHZ">
+                                <rect key="frame" x="30" y="219.33333333333334" width="150" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="x22-BT-iPK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,6 +100,7 @@
                             <constraint firstItem="iaZ-GN-fty" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="BbU-qo-TOW"/>
                             <constraint firstItem="dCr-vt-e3g" firstAttribute="top" secondItem="msZ-2k-P6P" secondAttribute="bottom" constant="100" id="CIC-KN-Zsf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ewD-iH-xq0" secondAttribute="trailing" constant="30" id="CW4-cZ-cgK"/>
+                            <constraint firstItem="iaZ-GN-fty" firstAttribute="top" secondItem="Qta-lQ-RHZ" secondAttribute="bottom" constant="20" id="Cbz-y2-h7q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JLV-xq-c99" secondAttribute="trailing" constant="30" id="H6l-Dc-Wwa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="msZ-2k-P6P" secondAttribute="trailing" constant="30" id="JAL-Vb-PXL"/>
                             <constraint firstItem="VWk-1F-Ogs" firstAttribute="top" secondItem="6St-ME-hdL" secondAttribute="bottom" constant="20" id="LK9-g3-2e9"/>
@@ -105,6 +115,7 @@
                             <constraint firstItem="6St-ME-hdL" firstAttribute="top" secondItem="iaZ-GN-fty" secondAttribute="bottom" constant="10" id="gbE-Rn-A7S"/>
                             <constraint firstItem="msZ-2k-P6P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="mHs-hY-Ezk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ueB-i7-GzQ" secondAttribute="trailing" constant="30" id="ovg-jr-lrV"/>
+                            <constraint firstItem="Qta-lQ-RHZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="pRw-5V-bkY"/>
                             <constraint firstItem="ewD-iH-xq0" firstAttribute="top" secondItem="msZ-2k-P6P" secondAttribute="bottom" constant="10" id="pVY-uw-5fq"/>
                             <constraint firstItem="6St-ME-hdL" firstAttribute="top" secondItem="JLV-xq-c99" secondAttribute="bottom" id="r5z-17-VXc"/>
                             <constraint firstItem="ueB-i7-GzQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="tXu-Ro-uDK"/>
@@ -122,6 +133,7 @@
                         <outlet property="imageView" destination="JLV-xq-c99" id="BTC-NK-rO3"/>
                         <outlet property="inputHeightTextField" destination="6St-ME-hdL" id="o5y-kl-g2l"/>
                         <outlet property="inputWeightTextField" destination="msZ-2k-P6P" id="1bD-kf-xZQ"/>
+                        <outlet property="nicknameLabel" destination="Qta-lQ-RHZ" id="Mil-fY-mlR"/>
                         <outlet property="randomCalculateButton" destination="ewD-iH-xq0" id="SZA-UD-11T"/>
                         <outlet property="showResultButton" destination="dCr-vt-e3g" id="0ac-5w-oI7"/>
                         <outlet property="subTitleLabel" destination="XDe-LN-fGX" id="xgQ-SX-2cR"/>

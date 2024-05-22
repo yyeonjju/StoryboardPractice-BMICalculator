@@ -8,10 +8,9 @@
 import UIKit
 
 class BMIViewController: UIViewController {
-
-    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
+    @IBOutlet var nicknameLabel: UILabel!
     
     
     @IBOutlet var answerHeightLabel: UILabel!
@@ -38,6 +37,8 @@ class BMIViewController: UIViewController {
         inputHeightTextField.text = heightData
         let weightData = UserDefaults.standard.string(forKey: "weight")
         inputWeightTextField.text = weightData
+        let nicknameData = UserDefaults.standard.string(forKey: "nickname")
+        nicknameLabel.text = "닉네임 : \(nicknameData ?? "")"
     }
     
     private func configureUI () {
@@ -48,6 +49,9 @@ class BMIViewController: UIViewController {
         subTitleLabel.numberOfLines = 2
         subTitleLabel.textAlignment = .left
         subTitleLabel.font = .systemFont(ofSize: 13)
+        
+        nicknameLabel.text = "닉네임 : "
+        nicknameLabel.textColor = .brown
         
         answerHeightLabel.text = "키가 어떻게 되시나요?"
         answerHeightLabel.textColor = .gray
@@ -86,8 +90,7 @@ class BMIViewController: UIViewController {
                 
             }
             
-            saveToUserDefaults(height: height, weight: weight)
-            showResultAlertButton(resultText: resultText)
+            showResultAlertButton(resultText: resultText, height: height, weight: weight)
         }
     }
     
@@ -113,10 +116,11 @@ class BMIViewController: UIViewController {
         }
     }
     
-    private func saveToUserDefaults (height : Int, weight : Int) {
+    private func saveToUserDefaults (height : Int, weight : Int, nickname : String) {
         //UserDefaults에 키와 몸무게 값 저장
         UserDefaults.standard.set(height, forKey: "height")
         UserDefaults.standard.set(weight, forKey: "weight")
+        UserDefaults.standard.set(nickname, forKey: "nickname")
     }
     
     private func calculateBMI(weight: Int, height : Int) -> Double{
@@ -125,15 +129,32 @@ class BMIViewController: UIViewController {
         return roundedBMI
     }
     
-    private func showResultAlertButton (resultText : String) {
+    private func showResultAlertButton (resultText: String, height : Int, weight : Int) {
         //1. 얼럿 컨트롤러
-        let altert = UIAlertController(title: resultText, message: nil, preferredStyle: .alert)
+        let altert = UIAlertController(title: resultText, message: "닉네임을 입력하셔야 결과가 저장됩니다.", preferredStyle: .alert)
+        altert.addTextField{nicknameTextField in
+            nicknameTextField.placeholder = "닉네임을 입력하세요"
+        }
+        
         //2. 버튼
-        let confirm = UIAlertAction(title: "확인", style: .default)
+        let confirm = UIAlertAction(title: "확인", style: .default) { action in
+            guard let nickname = altert.textFields?[0].text else { return }
+            
+            //공백 검증
+            if !self.isOnlyWhitespace(text: nickname) {
+                self.saveToUserDefaults(height: height, weight: weight, nickname: nickname)
+                self.nicknameLabel.text = "닉네임 : \(nickname)"
+            }
+        }
+        
         //3. 액션 버튼 붙이기
         altert.addAction(confirm)
         //4. 얼럿 띄워주기
         present(altert, animated: true)
+    }
+    
+    private func isOnlyWhitespace(text: String) -> Bool {
+        return text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
 }
